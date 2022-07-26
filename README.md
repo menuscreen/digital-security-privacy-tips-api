@@ -54,14 +54,22 @@ touch server.js # initialized entry point default is 'index.js'
 echo 'node_modules' > .gitignore
 npm install express --save
 npm install nodemon --save-dev # developer dependency
+npm install dotenv --save
 ```
 
 Modify package.json:
+
 ```json
 "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
+```
+
+.env:
+
+```md
+DB_STRING=mongodb+srv://<username>:<password>@cluster.gtwti.mongodb.net/?retryWrites=true&w=majority
 ```
 
 If cloning this repository:
@@ -71,12 +79,16 @@ npm install
 ```
 
 Adding images to README.md:
+
 - Create .github/images directories inside repo
+
 ```bash
 mkdir .github && mkdir .github/images
 ```
+
 - Save your images inside the directory
-- Add html img tag pointing to the source inside README.md
+- Add markdown tag pointing to the source inside README.md
+
 ```md
 ![screenshot](https://raw.githubusercontent.com/menuscreen/digital-security-privacy-tips-api/main/.github/images/screenshot.png)
 ```
@@ -88,6 +100,7 @@ mkdir .github && mkdir .github/images
 It's a good idea to never run a command if you don't know what it does. If you are new to linux, the manual pages (manpages) is a great resource for learning about some command line utility or program.
 
 Example Usage:
+
 ```bash
 man ls 
 ```
