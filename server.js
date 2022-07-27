@@ -1,7 +1,8 @@
 const express = require('express'); // ES6: import express from 'express';
 const app = express();
+const MongoClient = require('mongodb').MongoClient
 const PORT = 3000;
-
+require('dotenv').config()
 
 let db,
     dbConnectionStr = process.env.DB_STRING,
@@ -12,6 +13,10 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
         console.log(`Connected to ${dbName} database.`);
         db = client.db(dbName);
     });
+
+    
+// allows you to create nested objects within your query strings, by surrounding the name of sub-keys with square brackets
+app.use(express.urlencoded({ extended: true })) 
 
 // Response serving html landing page (used for api documentation)
 app.get('/', (request, response) => {
