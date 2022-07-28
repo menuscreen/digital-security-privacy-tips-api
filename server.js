@@ -15,7 +15,7 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
     });
 
     
-// allows you to create nested objects within your query strings, by surrounding the name of sub-keys with square brackets
+// extended allows you to create nested objects within your query strings, by surrounding the name of sub-keys with square brackets
 app.use(express.urlencoded({ extended: true })) 
 
 // Response serving html landing page (used for api documentation)
